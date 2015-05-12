@@ -12,6 +12,8 @@
   margin: 5px;
   border-color: rgba(239,48,56,.8);
   text-align: center;
+  font-size: 33px;
+  vertical-align: text-top;
 }
 
 .cross {
