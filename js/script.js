@@ -9,7 +9,7 @@ var board = ['','','','','','','','','']
 // }
 
   var switchPlayer = function() {
-   
+
 
   };
 
@@ -18,10 +18,11 @@ for (var i = 0; i >= winningCombo.length; i++) {
 };
 
 $(document).ready(function(){
+
   $('.box').on('click', function(e){
     var boardID = $(this).attr("data-id")-1;
     board[boardID] = firstPlayer;
-    $(this).addClass('cross');
+    $(this).addClass('cross').text(firstPlayer);
     console.log(board)
 
     // if 
