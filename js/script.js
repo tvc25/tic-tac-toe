@@ -1,6 +1,7 @@
 var currentPlayer = 'X';
 var winningCombo = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 var board = ['','','','','','','','',''];
+var winningArray = []
 // var winner = ['X','X','X'];
 
 function switchPlayer() { //  if the current player is X then it will switch to O otherwise it can only be O anyway
@@ -12,13 +13,27 @@ function switchPlayer() { //  if the current player is X then it will switch to 
 }
 
 function checkWinner(){
-  if (board === winningCombo) {
-    console.log(currentPlayer + ' is the Winner!');
-  } 
-}
-// for (var i = 0; i >= winningCombo.length; i++) {
-//   console.log(winningCombo[i]);
-// };
+  winningArray = []
+
+  for(j = 0; j < board.length; j++){
+    if(board[j] === currentPlayer){
+      winningArray.push(j)
+    }
+  }
+
+  for (var i = 0; i < winningCombo.length; i++) {
+    for(k = 0; k < winningArray.length; k++){
+      if (winningCombo[i][0] === winningArray[k]){
+        if (winningCombo[i][1]=== winningArray[k+1] && winningCombo[i][2] === winningArray[k+2]){
+          alert(currentPlayer + ' ' + ' is a winner')
+        } 
+        }
+      }
+    }
+  };
+
+
+
 $(document).ready(function(){
   $('.box').on('click', function(e){
     var boardID = $(this).data("cell");
