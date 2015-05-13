@@ -1,5 +1,5 @@
 .container {
-  width: 45%;
+  width: 50%;
   margin:0 auto;
   height: 50%;
 }
@@ -12,8 +12,9 @@
   margin: 5px;
   border-color: rgba(239,48,56,.8);
   text-align: center;
-  font-size: 33px;
-  vertical-align: text-top;
+  font-size: 100px;
+  vertical-align: top;
+  line-height: 100px;
 }
 
 .cross {
