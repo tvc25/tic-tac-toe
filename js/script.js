@@ -14,27 +14,61 @@ function switchPlayer() { //  if the current player is X then it will switch to 
 }
 
 function checkWinner(){
-  winningArray = [];// empty array to be populated with the entries the player makes on the board.
 
-  for(j = 0; j < board.length; j++){// iterate over the board array
-    if(board[j] === currentPlayer){
-      winningArray.push(j);// push the entry of the player into the board's array
-    }
-  }
+  var noWinnerExists = true;
 
-  for (var i = 0; i < winningCombo.length; i++) {
-    for(k = 0; k < winningArray.length; k++){// for loops i and j iterate over both the winning array and the winning combination array to check if there is a winner
-      if (winningCombo[i][0] === winningArray[k]){
-        if (winningCombo[i][1]=== winningArray[k+1] && winningCombo[i][2] === winningArray[k+2]){// this checks whether a winner is present over the three arrays and if they match then there is a winning outcome
-           $('div.winner').text(currentPlayer + ' ' + " HAS WON THE GAME OF LIFE!!! HERO!!!");// displays text only on a win
-           // $('.box').off('click');// stops further turns from being taken
-        } else if( moveNumber === 9 && currentPlayer != winningCombo){
-          $('div.winner').text('We have DEADLOCK, FIGHT TO THE DEATH!');//determines match as a draw
-        }
-      }
+  $.each(winningCombo, function(index, combo){
+
+    if(board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]] && board[combo[0]] === "X"){
+      console.log("x wins!");
+      noWinnerExists = false;
+      $('.box').off('click');
+      $('.box').text('WIN!');// stops further turns from being taken
+                 $('div.winner').text(currentPlayer + ' ' + " HAS WON THE GAME OF LIFE!!! HERO!!!");// displays text only on a win
+
+    } else if (board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]] && board[combo[0]] === "O"){
+      console.log("o wins!");
+      noWinnerExists = false;
+      $('.box').off('click');// stops further turns from being taken
+                 $('div.winner').text(currentPlayer + ' ' + " HAS WON THE GAME OF LIFE!!! HERO!!!");// displays text only on a win
+                 $('.box').text('WIN!');
+    } else if ( moveNumber === 9 && noWinnerExists ){//determines match as a draw
+      console.log("TIE!");
+                $('div.winner').text('We have DEADLOCK, FIGHT TO THE DEATH!');//determines match as a draw
+
     }
-  }
+
+  });
+
 }
+
+
+  // winningArray = [];// empty array to be populated with the entries the player makes on the board.
+
+  // for(j = 0; j < board.length; j++){// iterate over the board array
+  //   if(board[j] === currentPlayer){
+  //     winningArray.push(j);// push the entry of the player into the board's array
+  //   }
+  // }
+
+  // for (var i = 0; i < winningCombo.length; i++) {
+  //   for(k = 0; k < winningArray.length; k++){// for loops i and j iterate over both the winning array and the winning combination array to check if there is a winner
+  //     // if (winningCombo[i][0] === winningArray[k]){
+  //     //   if (winningCombo[i][1]=== winningArray[k+1] && winningCombo[i][2] === winningArray[k+2]){// this checks whether a winner is present over the three arrays and if they match then there is a winning outcome
+  //     if (winningCombo[i][0] === winningArray[k]){
+  //       if (winningCombo[i][1]=== winningArray[k+1]){
+  //         if(winningCombo[i][2] === winningArray[k+2]){// this checks whether a winner is present over the three arrays and if they match then there is a winning outcome
+  //          $('div.winner').text(currentPlayer + ' ' + " HAS WON THE GAME OF LIFE!!! HERO!!!");// displays text only on a win
+  //          $('.box').text('WIN!');
+  //          $('.box').off('click');// stops further turns from being taken
+  //       } else if( moveNumber === 9 && currentPlayer !== winningCombo){ //THIS MAY BE WHERE MY ISSUE IS -----
+  //         $('div.winner').text('We have DEADLOCK, FIGHT TO THE DEATH!');//determines match as a draw
+  //       }
+  //       }
+  //     }
+  //   }
+  // }
+
 
 function makeMove(e){
   $(this).off('click');
@@ -51,14 +85,15 @@ function makeMove(e){
 function clearBoard (){
   $('.box').text('');
   $('.winner').text('');
-  board = [];
+  board = ['','','','','','','','',''];
   winningArray = [];
   moveNumber = 0;
-  winCounter = currentPlayer +1;
+  winCounter = 0;
+  currentPlayer = 'X';
   // $.each($('.box'), function(index, element){
   //   $(this).on('click');
   // });
-  $('.box').on('click', makeMove);  
+  $('.box').on('click', makeMove); 
 };
 
 
