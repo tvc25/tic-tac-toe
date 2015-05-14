@@ -3,39 +3,38 @@ var winningCombo = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4
 var board = ['','','','','','','','',''];
 var winningArray = [];
 var moveNumber = 0;
-// var winner = ['X','X','X'];
 
 function switchPlayer() { //  if the current player is X then it will switch to O otherwise it can only be O anyway
-  if (currentPlayer === 'X') {
-    currentPlayer = 'O';
+  if (currentPlayer === 'X') {// current player is equal to X
+    currentPlayer = 'O';// if the current player is not equal to X then it must be O
   } else {
-    currentPlayer = 'X';
+    currentPlayer = 'X';// otherwise the current player is X
   }  
 }
 
 function checkWinner(){
-  winningArray = [];
+  winningArray = [];// empty array to be populated with the entries the player makes on the board.
 
-  for(j = 0; j < board.length; j++){
+  for(j = 0; j < board.length; j++){// iterate over the board array
     if(board[j] === currentPlayer){
-      winningArray.push(j);
+      winningArray.push(j);// push the entry of the player into the board's array
     }
   }
 
   for (var i = 0; i < winningCombo.length; i++) {
-    for(k = 0; k < winningArray.length; k++){
+    for(k = 0; k < winningArray.length; k++){// for loops i and j iterate over both the winning array and the winning combination array to check if there is a winner
       if (winningCombo[i][0] === winningArray[k]){
-        if (winningCombo[i][1]=== winningArray[k+1] && winningCombo[i][2] === winningArray[k+2]){
-          alert(currentPlayer + ' ' + ' is a winner');
+        if (winningCombo[i][1]=== winningArray[k+1] && winningCombo[i][2] === winningArray[k+2]){// this checks whether a winner is present over the three arrays and if they match then there is a winning outcome
+           $('div.winner').text(currentPlayer + ' ' + " is the winner!");// displays text only on a win
+           $('.box').unbind('click');// stops further turns from being taken
         } else if( moveNumber === 9 && currentPlayer != winningCombo){
-          console.log('we have no winner, its a draw')
+          $('div.winner').text('We have a draw, so we must go to the public vote');//determines match as a draw
+
         }
       }
     }
   }
 }
-
-// if no winner from winningCombo array and board is full then no winner and its a draw //
 
 $(document).ready(function(){
   $('.box').on('click', function(e){
@@ -43,42 +42,7 @@ $(document).ready(function(){
     board[boardID] = currentPlayer;
     $(this).addClass('cross').text(currentPlayer);
       moveNumber += 1;
-      console.log(moveNumber);
       checkWinner();
       switchPlayer();
   });
 });
-  //   if 
-  // playerOne = board[$(this).data('id')]= 'X';
-  //     else
-  //   board[$(this).('id')]= 'O';
-  
-
-// 1. needs to get a players first move
-// 2. needs to log that move then switch the play
-// 3. needs to check over the array after three goes to see if there's a winner
-
-
-
-// $('.box').on('click', function (){
-//   if(currentPlayer === 'X') {
-//     $(this).text('O').addClass('nought');
-//     currentPlayer = 'O'
-//   }
-//   else{
-//     $(this).text('X').addClass('cross');
-//     currentPlayer = 'X'
-//   }
-// })
-
-
-//   var checkWinner = function(){
-//     $("winningCombo").each(function(i, val){
-//       $('winningCombo').find('data-id').each(function(i, j){
-//         arr[i][j] = parseInt($(this).attr("data-id"));
-//           console.log(this);
-//           debugger
-//             });
-// });
-// };
-// checkWinner();
