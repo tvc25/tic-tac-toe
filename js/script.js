@@ -23,19 +23,18 @@ function checkWinner(){
 function declareWinner (index, combo){
     var noWinnerExists = true;
     if(board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]] && board[combo[0]] === "X"){
-      console.log("x wins!");
       noWinnerExists = false;
       $('.box').off('click');
-      $('.box').text('WIN!');// stops further turns from being taken
+      $('.box').text('WIN');// stops further turns from being taken
       $('div.winner').text(currentPlayer + ' ' + " WINS THE GAME ");// displays text only on a win
     } else if (board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]] && board[combo[0]] === "O"){
       noWinnerExists = false;
       $('.box').off('click');// stops further turns from being taken
       $('div.winner').text(currentPlayer + ' ' + " WINS THE GAME");// displays text only on a win
-      $('.box').text('WIN!');
+      $('.box').text('WIN');
     } else if ( moveNumber === 9 && noWinnerExists ){//determines match as a draw
       $('.box').off('click');// stops further turns from being taken
-      $('.box').text('TIE!');
+      $('.box').text('TIE');
       $('div.winner').text('D E A D L O C K');//determines match as a draw
     }
   }

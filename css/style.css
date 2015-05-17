@@ -73,7 +73,7 @@ font: normal 70px/normal "Codystar", Helvetica, sans-serif;
 .winner {
  display: inline-block;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 20px;
   border: none;
   font: normal 25px/normal "Codystar", Helvetica, sans-serif;
   text-align: center;
@@ -97,9 +97,9 @@ font: normal 70px/normal "Codystar", Helvetica, sans-serif;
 }
 
 .restart-button {
-  border: 1px solid gray;
+  border: 1px solid black;
   background: none;
   font-family: 'Codystar';
   color: #fff;
-  padding: 10px 20px;
+  padding: 20px 20px;
 }
