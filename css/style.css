@@ -20,14 +20,6 @@ text-shadow: 0 0 10px rgb(255,255,255) , 0 0 20px rgb(255,255,255) , 0 0 30px rg
 
 }
 
-button {
-
-  font-family: 'SanFranciscoText-Light';
-  margin-left: 45%;
-  margin-top: 70px;
-
-}
-
 body {
   background-color: black;
 }
@@ -36,6 +28,7 @@ body {
   width: 50%;
   height: 50%;
   margin:0 auto;
+  text-align: center;
 
 }
 
@@ -50,10 +43,6 @@ body {
   font-size: 100px;
   vertical-align: top;
   line-height: 150px;
-
-}
-
-.box {
   display: inline-block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -75,20 +64,11 @@ body {
 }
 
 .box:hover {
-/*  font: normal 90px/normal "Lemon", Helvetica, sans-serif;
-  text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ffffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;
-  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-  -webkit-transform: none;
-  transform: none;*/
 font: normal 70px/normal "Codystar", Helvetica, sans-serif;
   word-spacing: 3px;
   text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;
   line-height: 150px;
 }
-
 
 .winner {
  display: inline-block;
@@ -96,13 +76,11 @@ font: normal 70px/normal "Codystar", Helvetica, sans-serif;
   padding: 10px;
   border: none;
   font: normal 25px/normal "Codystar", Helvetica, sans-serif;
-  margin-left: 300px;
   text-align: center;
   text-overflow: clip;
   white-space: pre;
   text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
- margin-left: 25%;
   color: #f35626;
   background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
   -webkit-background-clip: text;
@@ -117,38 +95,11 @@ font: normal 70px/normal "Codystar", Helvetica, sans-serif;
 .nought {
   background-color: yellow;
 }
-/*
-.clear{
-  font: normal 55px/normal "Codystar", Helvetica, sans-serif;
-  color: rgba(255,255,255,1);
-  text-decoration: normal;
-  text-align: center;
-  -o-text-overflow: clip;
-  text-overflow: clip;
-  white-space: pre;
-  text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
-  text-align: center;
-}
-*/
-/*
-h1:hover{
-  color: #f35626;
-  background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-animation: hue 60s infinite linear;
-}
-*/
 
-/*.box:hover{
-  -webkit-animation-name: hvr-pulse-grow;
-  animation-name: hvr-pulse-grow;
-  -webkit-animation-duration: 0.3s;
-  animation-duration: 0.3s;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-direction: alternate;
-  animation-direction: alternate;
-}*/
+.restart-button {
+  border: 1px solid gray;
+  background: none;
+  font-family: 'Codystar';
+  color: #fff;
+  padding: 10px 20px;
+}
